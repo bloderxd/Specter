@@ -2,7 +2,7 @@
 
 ![alt tag](http://orig09.deviantart.net/b7f1/f/2013/300/6/5/one_eyed_spectre_animation_by_lissathekitty-d6rmh63.png)
 
-#### Specter is a easy way to convert a payload data to pojo class.
+#### Specter is an easy way to convert a payload data to pojo class.
 
 # How does it work?
 
@@ -42,4 +42,4 @@ pojo = new Specter<Pojo, Payload>()
             .withFieldContext();
 ```
 
-Just it!
+That's it!
