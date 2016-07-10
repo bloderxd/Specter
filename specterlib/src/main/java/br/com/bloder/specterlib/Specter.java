@@ -23,8 +23,14 @@ public class Specter<T, R> {
   }
 
   public T withFieldContext() {
-    Field[] payloadFields = payload.getClass().getDeclaredFields();
-    Field[] pojoFields = pojo.getClass().getDeclaredFields();
+    specter(payload, pojo);
+    return pojo;
+  }
+
+  private void specter(Object originClass, Object destinyClass) {
+
+    Field[] payloadFields = originClass.getClass().getDeclaredFields();
+    Field[] pojoFields = destinyClass.getClass().getDeclaredFields();
 
     for (Field originField : payloadFields) {
       if (originField.isAnnotationPresent(FieldSpect.class)) {
@@ -33,12 +39,17 @@ public class Specter<T, R> {
             destinyField.setAccessible(true);
             originField.setAccessible(true);
             try {
-              destinyField.set(pojo, originField.get(payload));
-            } catch (IllegalAccessException e) { e.printStackTrace(); }
+              if (!destinyField.getType().isPrimitive() && !destinyField.getType().equals(String.class)) {
+                specter(originField.get(originClass), destinyField.get(destinyClass));
+              } else {
+                destinyField.set(destinyClass, originField.get(originClass));
+              }
+            } catch (IllegalAccessException e) {
+              e.printStackTrace();
+            }
           }
         }
       }
     }
-    return pojo;
   }
 }
