@@ -36,10 +36,9 @@ Then you just need to call specter functions to transfer all payload data to poj
 Payload payload = new Payload("Daniel");
 Pojo pojo = new TestPojo("");
 
-pojo = new Specter<Pojo, Payload>()
+pojo = (Pojo) new Specter()
             .transform(payload)
-            .in(pojo)
-            .withFieldContext();
+            .inPojoWithInstance(pojo);
 ```
 
 That's it!
