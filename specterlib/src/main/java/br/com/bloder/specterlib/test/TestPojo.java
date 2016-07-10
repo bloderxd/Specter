@@ -17,7 +17,7 @@ public class TestPojo {
   public final float grade;
 
   @FieldSpect(name = "subClass")
-  public SubPojo subPojo;
+  public final SubPojo subPojo;
 
   public TestPojo(String name, int age, float grade, SubPojo subPojo) {
     this.name = name;

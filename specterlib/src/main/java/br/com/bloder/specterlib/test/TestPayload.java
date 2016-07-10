@@ -17,7 +17,7 @@ public class TestPayload {
   private final float grade;
 
   @FieldSpect(name = "subClass")
-  public SubPayload subPayload;
+  private final SubPayload subPayload;
 
   public TestPayload(String name, int age, float grade, SubPayload subPayload) {
     this.name = name;
