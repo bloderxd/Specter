@@ -17,36 +17,33 @@ import static org.junit.Assert.assertEquals;
  */
 public class FieldSpectUnitTest {
 
-  TestPojo testPojo = new TestPojo("", 0, 0, new SubPojo("", 0, new ThirdPojo("")));
-  TestPayload testPayload = new TestPayload("Daniel", 18, 12, new SubPayload("Bloder", 16, new ThirdPayload("Hello")));
+  TestPojo pojo = new TestPojo("", 0, 0, new SubPojo("", 0, new ThirdPojo("")));
+  TestPayload payload = new TestPayload("Daniel", 18, 12, new SubPayload("Bloder", 16, new ThirdPayload("Hello")));
 
   @Test
   public void fieldSpectNormalTransition() {
-    testPojo = (TestPojo) new Specter()
-            .transform(testPayload)
-            .in(testPojo)
-            .withFieldContext();
+    pojo = (TestPojo) new Specter()
+            .transform(payload)
+            .inPojoWithInstance(pojo);
 
-    assertEquals("Daniel", testPojo.name);
+    assertEquals("Daniel", pojo.name);
   }
 
   @Test
   public void fieldSpectWithSubClassTransition() {
-    testPojo = (TestPojo) new Specter()
-            .transform(testPayload)
-            .in(testPojo)
-            .withFieldContext();
+    pojo = (TestPojo) new Specter()
+            .transform(payload)
+            .inPojoWithInstance(pojo);
 
-    assertEquals("Bloder", testPojo.subPojo.subName);
+    assertEquals("Bloder", pojo.subPojo.subName);
   }
 
   @Test
   public void fieldSpectWithThirdClassTransition() {
-    testPojo = (TestPojo) new Specter()
-            .transform(testPayload)
-            .in(testPojo)
-            .withFieldContext();
+    pojo = (TestPojo) new Specter()
+            .transform(payload)
+            .inPojoWithInstance(pojo);
 
-    assertEquals("Hello", testPojo.subPojo.thirdPojo.message);
+    assertEquals("Hello", pojo.subPojo.thirdPojo.message);
   }
 }
