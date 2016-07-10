@@ -14,11 +14,11 @@ public class SubPojo {
   public final int subAge;
 
   @FieldSpect(name = "testSub")
-  public final ThirdPojo exampleTestPayload;
+  public final ThirdPojo thirdPojo;
 
   public SubPojo(String subName, int subAge, ThirdPojo exampleTestPayload) {
     this.subName = subName;
     this.subAge = subAge;
-    this.exampleTestPayload = exampleTestPayload;
+    this.thirdPojo = exampleTestPayload;
   }
 }

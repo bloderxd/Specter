@@ -14,11 +14,11 @@ public class SubPayload {
   private final int subAge;
 
   @FieldSpect(name = "testSub")
-  private final ThirdPayload exampleTestPayload;
+  private final ThirdPayload thirdPayload;
 
   public SubPayload(String subName, int subAge, ThirdPayload exampleTestPayload) {
     this.subName = subName;
     this.subAge = subAge;
-    this.exampleTestPayload = exampleTestPayload;
+    this.thirdPayload = exampleTestPayload;
   }
 }

@@ -7,10 +7,10 @@ import br.com.bloder.specterlib.annotation.FieldSpect;
  */
 public class ThirdPojo {
 
-  @FieldSpect(name = "test")
-  public final String test;
+  @FieldSpect(name = "message")
+  public final String message;
 
   public ThirdPojo(String test) {
-    this.test = test;
+    this.message = test;
   }
 }

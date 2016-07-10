@@ -47,6 +47,6 @@ public class FieldSpectUnitTest {
             .in(testPojo)
             .withFieldContext();
 
-    assertEquals("Hello", testPojo.subPojo.exampleTestPayload.test);
+    assertEquals("Hello", testPojo.subPojo.thirdPojo.message);
   }
 }

@@ -7,10 +7,10 @@ import br.com.bloder.specterlib.annotation.FieldSpect;
  */
 public class ThirdPayload {
 
-  @FieldSpect(name = "test")
-  private final String test;
+  @FieldSpect(name = "message")
+  private final String message;
 
   public ThirdPayload(String test) {
-    this.test = test;
+    this.message = test;
   }
 }
