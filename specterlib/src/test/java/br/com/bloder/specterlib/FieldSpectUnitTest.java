@@ -22,7 +22,7 @@ public class FieldSpectUnitTest {
 
   @Test
   public void fieldSpectNormalTransition() {
-    testPojo = new Specter<TestPojo, TestPayload>()
+    testPojo = (TestPojo) new Specter()
             .transform(testPayload)
             .in(testPojo)
             .withFieldContext();
@@ -32,7 +32,7 @@ public class FieldSpectUnitTest {
 
   @Test
   public void fieldSpectWithSubClassTransition() {
-    testPojo = new Specter<TestPojo, TestPayload>()
+    testPojo = (TestPojo) new Specter()
             .transform(testPayload)
             .in(testPojo)
             .withFieldContext();
@@ -42,7 +42,7 @@ public class FieldSpectUnitTest {
 
   @Test
   public void fieldSpectWithThirdClassTransition() {
-    testPojo = new Specter<TestPojo, TestPayload>()
+    testPojo = (TestPojo) new Specter()
             .transform(testPayload)
             .in(testPojo)
             .withFieldContext();

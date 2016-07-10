@@ -7,22 +7,22 @@ import br.com.bloder.specterlib.annotation.FieldSpect;
 /**
  * Created by bloder on 07/07/16.
  */
-public class Specter<T, R> {
+public class Specter {
 
-  private R payload;
-  private T pojo;
+  private Object payload;
+  private Object pojo;
 
-  public Specter<T, R> transform(R payload) {
+  public Specter transform(Object payload) {
     this.payload = payload;
     return this;
   }
 
-  public Specter<T, R> in(T pojo) {
+  public Specter in(Object pojo) {
     this.pojo = pojo;
     return this;
   }
 
-  public T withFieldContext() {
+  public Object withFieldContext() {
     specter(payload, pojo);
     return pojo;
   }
