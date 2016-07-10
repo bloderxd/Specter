@@ -1,4 +1,4 @@
-package br.com.bloder.specterlib.internal;
+package br.com.bloder.specterlib.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

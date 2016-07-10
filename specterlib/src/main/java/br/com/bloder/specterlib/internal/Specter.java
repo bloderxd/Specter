@@ -1,8 +1,8 @@
-package br.com.bloder.specterlib;
+package br.com.bloder.specterlib.internal;
 
 import java.lang.reflect.Field;
 
-import br.com.bloder.specterlib.internal.FieldSpect;
+import br.com.bloder.specterlib.annotation.FieldSpect;
 
 /**
  * Created by bloder on 07/07/16.

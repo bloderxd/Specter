@@ -1,6 +1,6 @@
 package br.com.bloder.specterlib.test;
 
-import br.com.bloder.specterlib.internal.FieldSpect;
+import br.com.bloder.specterlib.annotation.FieldSpect;
 
 /**
  * Created by bloder on 09/07/16.
