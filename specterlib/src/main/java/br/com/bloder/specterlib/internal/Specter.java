@@ -17,12 +17,8 @@ public class Specter {
     return this;
   }
 
-  public Specter in(Object pojo) {
+  public Object inPojoWithInstance(Object pojo) {
     this.pojo = pojo;
-    return this;
-  }
-
-  public Object withFieldContext() {
     specter(payload, pojo);
     return pojo;
   }
