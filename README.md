@@ -1,3 +1,5 @@
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.bloder/specterlib/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.bloder/specterlib)
+
 # Specter
 
 ![alt tag](http://orig09.deviantart.net/b7f1/f/2013/300/6/5/one_eyed_spectre_animation_by_lissathekitty-d6rmh63.png)
