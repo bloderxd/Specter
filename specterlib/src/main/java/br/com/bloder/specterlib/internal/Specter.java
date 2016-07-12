@@ -28,7 +28,7 @@ public class Specter {
     if (destinyClass.getClass().getSuperclass() != Object.class) {
       pojoFields = destinyClass.getClass().getSuperclass().getDeclaredFields();
       payloadFields = originClass.getClass().getSuperclass().getDeclaredFields();
-      secondSpecting(originClass, destinyClass);
+      continueSpecting(originClass, destinyClass);
       specting(payloadFields, pojoFields, originClass, destinyClass);
     } else {
       pojoFields = destinyClass.getClass().getDeclaredFields();
@@ -38,7 +38,7 @@ public class Specter {
     specting(payloadFields, pojoFields, originClass, destinyClass);
   }
 
-  private void secondSpecting(Object originClass, Object destinyClass) {
+  private void continueSpecting(Object originClass, Object destinyClass) {
     Field[] payloadFields;
     Field[] pojoFields;
     pojoFields = destinyClass.getClass().getDeclaredFields();
