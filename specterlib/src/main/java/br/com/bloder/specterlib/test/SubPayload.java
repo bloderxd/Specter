@@ -1,24 +1,17 @@
 package br.com.bloder.specterlib.test;
 
-import br.com.bloder.specterlib.annotation.FieldSpect;
+import br.com.bloder.specterlib.annotation.Specter;
 
 /**
  * Created by bloder on 09/07/16.
  */
-public class SubPayload {
+public class SubPayload extends FatherPayload {
 
-  @FieldSpect(name = "subName")
-  private final String subName;
-
-  @FieldSpect(name = "subAge")
-  private final int subAge;
-
-  @FieldSpect(name = "testSub")
+  @Specter(name = "testSub")
   private final ThirdPayload thirdPayload;
 
-  public SubPayload(String subName, int subAge, ThirdPayload exampleTestPayload) {
-    this.subName = subName;
-    this.subAge = subAge;
+  public SubPayload(String fatherOfFatherName ,String subName, int subAge, ThirdPayload exampleTestPayload) {
+    super(fatherOfFatherName, subName, subAge);
     this.thirdPayload = exampleTestPayload;
   }
 }

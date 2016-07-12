@@ -1,24 +1,17 @@
 package br.com.bloder.specterlib.test;
 
-import br.com.bloder.specterlib.annotation.FieldSpect;
+import br.com.bloder.specterlib.annotation.Specter;
 
 /**
  * Created by bloder on 09/07/16.
  */
-public class SubPojo {
+public class SubPojo extends FatherPojo {
 
-  @FieldSpect(name = "subName")
-  public final String subName;
-
-  @FieldSpect(name = "subAge")
-  public final int subAge;
-
-  @FieldSpect(name = "testSub")
+  @Specter(name = "testSub")
   public final ThirdPojo thirdPojo;
 
-  public SubPojo(String subName, int subAge, ThirdPojo exampleTestPayload) {
-    this.subName = subName;
-    this.subAge = subAge;
+  public SubPojo(String fatherOfFatherName, String subName, int subAge, ThirdPojo exampleTestPayload) {
+    super(fatherOfFatherName, subName, subAge);
     this.thirdPojo = exampleTestPayload;
   }
 }
