@@ -1,25 +1,25 @@
 package br.com.bloder.specterlib.test;
 
-import br.com.bloder.specterlib.annotation.FieldSpect;
+import br.com.bloder.specterlib.annotation.Specter;
 
 /**
  * Created by bloder on 07/07/16.
  */
-public class TestPojo {
+public class FirstPojo {
 
-  @FieldSpect(name = "name")
+  @Specter(name = "name")
   public final String name;
 
-  @FieldSpect(name = "age")
+  @Specter(name = "age")
   public final int age;
 
-  @FieldSpect(name = "grade")
+  @Specter(name = "grade")
   public final float grade;
 
-  @FieldSpect(name = "subClass")
+  @Specter(name = "subClass")
   public final SubPojo subPojo;
 
-  public TestPojo(String name, int age, float grade, SubPojo subPojo) {
+  public FirstPojo(String name, int age, float grade, SubPojo subPojo) {
     this.name = name;
     this.age = age;
     this.grade = grade;

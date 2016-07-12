@@ -1,25 +1,25 @@
 package br.com.bloder.specterlib.test;
 
-import br.com.bloder.specterlib.annotation.FieldSpect;
+import br.com.bloder.specterlib.annotation.Specter;
 
 /**
  * Created by bloder on 07/07/16.
  */
-public class TestPayload {
+public class FirstPayload {
 
-  @FieldSpect(name = "name")
+  @Specter(name = "name")
   private final String name;
 
-  @FieldSpect(name = "age")
+  @Specter(name = "age")
   private final int age;
 
-  @FieldSpect(name = "grade")
+  @Specter(name = "grade")
   private final float grade;
 
-  @FieldSpect(name = "subClass")
+  @Specter(name = "subClass")
   private final SubPayload subPayload;
 
-  public TestPayload(String name, int age, float grade, SubPayload subPayload) {
+  public FirstPayload(String name, int age, float grade, SubPayload subPayload) {
     this.name = name;
     this.age = age;
     this.grade = grade;
