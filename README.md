@@ -13,7 +13,7 @@ Well, to tranfer any data to your pojo classes, you need to add some annotations
 ```java
 public class Payload {
 
-  @FieldSpect(name = "name")
+  @Specter(name = "name")
   private final String name;
   
   public Payload(String name) {
@@ -23,7 +23,7 @@ public class Payload {
 
 public class Pojo {
 
-  @FieldSpect(name = "name")
+  @Specter(name = "name")
   public final String name;
   
   public Pojo(String name) {
