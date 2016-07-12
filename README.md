@@ -51,7 +51,7 @@ That's it!
 
 ```groovy
 dependencies {
-    compile 'com.github.bloder:specterlib:1.1'
+    compile 'com.github.bloder:specterlib:1.2'
 }
 ```
 
@@ -61,7 +61,7 @@ dependencies {
 <dependency>
   <groupId>com.github.bloder</groupId>
   <artifactId>specterlib</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
   <type>pom</type>
 </dependency>
 ```
@@ -69,7 +69,7 @@ dependencies {
 ### Ivy
 
 ```xml
-<dependency org='com.github.bloder' name='specterlib' rev='1.1'>
+<dependency org='com.github.bloder' name='specterlib' rev='1.2'>
   <artifact name='$AID' ext='pom'></artifact>
 </dependency>
 ```
