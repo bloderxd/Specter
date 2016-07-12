@@ -2,8 +2,6 @@ package br.com.bloder.specterlib.internal;
 
 import java.lang.reflect.Field;
 
-import br.com.bloder.specterlib.annotation.FieldSpect;
-
 /**
  * Created by bloder on 07/07/16.
  */
@@ -24,18 +22,41 @@ public class Specter {
   }
 
   private void specter(Object originClass, Object destinyClass) {
+    Field[] pojoFields;
+    Field[] payloadFields;
 
-    Field[] payloadFields = originClass.getClass().getDeclaredFields();
-    Field[] pojoFields = destinyClass.getClass().getDeclaredFields();
+    if (destinyClass.getClass().getSuperclass() != Object.class) {
+      pojoFields = destinyClass.getClass().getSuperclass().getDeclaredFields();
+      payloadFields = originClass.getClass().getSuperclass().getDeclaredFields();
+      secondSpecting(originClass, destinyClass);
+      specting(payloadFields, pojoFields, originClass, destinyClass);
+    } else {
+      pojoFields = destinyClass.getClass().getDeclaredFields();
+      payloadFields = originClass.getClass().getDeclaredFields();
+    }
+
+    specting(payloadFields, pojoFields, originClass, destinyClass);
+  }
+
+  private void secondSpecting(Object originClass, Object destinyClass) {
+    Field[] payloadFields;
+    Field[] pojoFields;
+    pojoFields = destinyClass.getClass().getDeclaredFields();
+    payloadFields = originClass.getClass().getDeclaredFields();
+
+    specting(payloadFields, pojoFields, originClass, destinyClass);
+  }
+
+  private void specting(Field[] payloadFields, Field[] pojoFields, Object originClass, Object destinyClass) {
 
     for (Field originField : payloadFields) {
-      if (originField.isAnnotationPresent(FieldSpect.class)) {
-        for(Field destinyField : pojoFields) {
-          if(originField.getAnnotation(FieldSpect.class).name().equals(destinyField.getAnnotation(FieldSpect.class).name())) {
+      if (originField.isAnnotationPresent(br.com.bloder.specterlib.annotation.Specter.class)) {
+        for (Field destinyField : pojoFields) {
+          if (originField.getAnnotation(br.com.bloder.specterlib.annotation.Specter.class).name().equals(destinyField.getAnnotation(br.com.bloder.specterlib.annotation.Specter.class).name())) {
             destinyField.setAccessible(true);
             originField.setAccessible(true);
             try {
-              if (!destinyField.getType().isPrimitive() && !destinyField.getType().equals(String.class)) {
+              if (!destinyField.getType().isPrimitive() && !isJavaObject(destinyField)) {
                 specter(originField.get(originClass), destinyField.get(destinyClass));
               } else {
                 destinyField.set(destinyClass, originField.get(originClass));
@@ -47,5 +68,12 @@ public class Specter {
         }
       }
     }
+  }
+
+  private boolean isJavaObject(Field field) {
+    for(int i = 0; i < SPEC_TYPE.values().length; i++) {
+      if(field.getType().equals(SPEC_TYPE.values()[i].object)) return true;
+    }
+    return false;
   }
 }
