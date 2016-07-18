@@ -1,4 +1,4 @@
-[![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.bloder/specterlib/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.bloder/specterlib)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Specter-green.svg?style=true)](https://android-arsenal.com/details/1/3937) [![Maven Central](https://maven-badges.herokuapp.com/maven-central/com.github.bloder/specterlib/badge.svg)](https://maven-badges.herokuapp.com/maven-central/com.github.bloder/specterlib)
 
 # Specter
 
